@@ -99,7 +99,3 @@ print(acc)
 model.save("dogs_vs_cats.h5")
 new_model = tf.keras.models.load_model('dogs_vs_cats.h5')   
 '''
-
-prediction = model.predict(np.array([test_batches[0]]), verbose=1)
-predicted_class = class_names[np.argmax(prediction)]
-model.predict
