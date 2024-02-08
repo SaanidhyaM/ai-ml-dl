@@ -31,9 +31,6 @@ def encode_text(text):
   tokens = [word_index[word] if word in word_index else 0 for word in tokens]
   return sequence.pad_sequences([tokens], MAXLEN)[0]
 
-text = "that movie was just amazing, so amazing"
-encoded = encode_text(text)
-print(encoded)
 
 reverse_word_index = {value: key for (key, value) in word_index.items()}
 
@@ -54,6 +51,10 @@ def predict(text):
   pred[0] = encoded_text
   result = model.predict(pred) 
   print(result[0])
+  if result[0]>.5:
+    print("Positive")
+  else:
+    print("Negative")
 
 positive_review = "That movie was! really loved it and would great watch it again because it was amazingly great"
 predict(positive_review)
